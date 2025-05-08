@@ -455,6 +455,62 @@ body {
 }
 
 
+/* ============================================
+   SECCIÓN: Botón flotante de WhatsApp
+============================================ */
+/* Botón flotante de WhatsApp */
+
+.whatsapp-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 24px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
+  animation: bounce 2s infinite 5s;
+}
+.whatsapp-flotante:hover {
+  transform: scale(1.1);
+}
+
+.tooltip-whatsapp {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 6px 10px;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  transform: translateX(20%);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp-flotante:hover .tooltip-whatsapp {
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
 /* About */
 
 .about {
