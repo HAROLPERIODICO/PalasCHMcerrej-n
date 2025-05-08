@@ -758,7 +758,7 @@ input[type="tel"]:focus {
 /* Footer */
 
 .footer{
-    background-color: #000103;
+    background-color: #FFA500; /*#000103;*/
 }
 
 .footer__title{
