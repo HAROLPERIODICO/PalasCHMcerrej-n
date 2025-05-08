@@ -388,6 +388,72 @@ body {
 }
 
 
+/* ============================================
+   SECCIÓN: PORTAFOLIO
+============================================ */
+
+.portafolio{
+    background: #f2f2f2;
+}
+
+.galeria-port {
+    display: grid;
+    grid-template-columns: repeat(4, auto); /* cada columna toma solo el tamaño del contenido */
+    justify-content: center; /* centra las columnas */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.enlace-port {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+.imagen-port{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(273,91%,27%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 120px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
 
 /* About */
 
