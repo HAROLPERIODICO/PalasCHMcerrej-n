@@ -351,49 +351,49 @@
   animation: fadeIn 0.5s ease forwards;
   opacity: 0; /* Oculto inicialmente para animación */
 }
-.seccion-re {
+.seccion-backlog {
   background-color: #fffaf5;
   padding: 3rem 1rem;
   text-align: center;
 }
 
-.seccion-re h2 {
+.seccion-backlog h2 {
   color: #fb0505;
   margin-bottom: 2rem;
 }
 
-.re-lista table {
+.backlog-lista table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2rem;
 }
 
-.re-lista th, .re-lista td {
+.backlog-lista th, .re-lista td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
 }
 
-.re-lista th {
+.backlog-lista th {
   background-color: #fb0505;
   color: white;
 }
 
-.re-formulario form {
+.backlog-formulario form {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
 
-.re-formulario input, .re-formulario button {
+.backlog-formulario input, .re-formulario button {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
 }
 
-.re-formulario button {
+.backlog-formulario button {
   background-color: #fb0505;
   color: white;
   border: none;
@@ -401,9 +401,65 @@
   transition: background 0.3s;
 }
 
-.re-formulario button:hover {
+.backlog-formulario button:hover {
   background-color: #c60404;
 }
+
+
+.seccion-re {
+  background-color: #fffaf5;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.seccion-backlog h2 {
+  color: #fb0505;
+  margin-bottom: 2rem;
+}
+
+.backlog-lista table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.backlog-lista th, .re-lista td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.backlog-lista th {
+  background-color: #fb0505;
+  color: white;
+}
+
+.rbacklog-formulario form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.backlog-formulario input, .re-formulario button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.backlog-formulario button {
+  background-color: #fb0505;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.backlog-formulario button:hover {
+  background-color: #c60404;
+}
+
 
 
   /* Footer General */
