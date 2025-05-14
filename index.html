@@ -200,6 +200,38 @@
             </div>
           </div>
         </section>
+	<section id="backlog" class="seccion">
+	  <h2>📌 Backlog</h2>
+	
+	  <form id="formulario-backlog">
+	    <label for="backlog-fecha">Fecha:</label>
+	    <input type="date" id="backlog-fecha" required>
+	
+	    <label for="backlog-tarea">Tarea pendiente:</label>
+	    <input type="text" id="backlog-tarea" required>
+	
+	    <label for="backlog-area">Área responsable:</label>
+	    <input type="text" id="backlog-area" required>
+	
+	    <button type="submit">Agregar a Backlog</button>
+	  </form>
+	
+	  <div id="mensaje-backlog" style="display:none; color: green; font-weight: bold; margin-top: 10px;">
+	    ✅ ¡Elemento agregado al backlog!
+	  </div>
+	
+	  <h3>🔎 Tareas pendientes</h3>
+	  <table id="tabla-backlog">
+	    <thead>
+	      <tr>
+	        <th>Fecha</th>
+	        <th>Tarea</th>
+	        <th>Área</th>
+	      </tr>
+	    </thead>
+	    <tbody></tbody>
+	  </table>
+	</section>
 
 
 
