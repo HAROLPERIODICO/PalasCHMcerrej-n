@@ -172,9 +172,11 @@
               <table>
                 <thead>
                   <tr>
-                    <th>Fecha</th>
-                    <th>Evento</th>
-                    <th>Responsable</th>
+                    <th>Equipo</th>
+		    <th>Descripción</th>
+		    <th>Parte número</th>
+		    <th>Prioridad</th>
+                    <th>Reporta</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -190,11 +192,14 @@
 
             <!-- Formulario para nuevos eventos -->
             <div class="re-formulario">
-              <h3>Agregar Nuevo Evento</h3>
+              <h3>Agregar Nuevo Evento RE</h3>
               <form id="form-re">
                 <input type="date" name="fecha" required>
-                <input type="text" name="evento" placeholder="Descripción del evento" required>
-                <input type="text" name="responsable" placeholder="Responsable" required>
+                <input type="text" name="equipo" placeholder="Descripción del evento" required>
+                <input type="text" name="derscripcion" placeholder="Responsable" required>
+                <input type="text" name="parte numero" placeholder="Descripción del evento" required>
+                <input type="text" name="prioridad" placeholder="Responsable" required>
+	        <input type="text" name="reporta" placeholder="Responsable" required>
                 <button type="submit">Agregar</button>
               </form>
             </div>
@@ -211,8 +216,11 @@
                 <thead>
                   <tr>
                     <th>Fecha</th>
-                    <th>Evento</th>
-                    <th>Responsable</th>
+                    <th>Equipo</th>
+		    <th>Descripción</th>
+		    <th>Parte número</th>
+		    <th>Prioridad</th>
+                    <th>Reporta</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -230,9 +238,11 @@
             <div class="backlog-formulario">
               <h3>Agregar Nuevo Evento</h3>
               <form id="form-backlog">
-                <input type="date" name="fecha" required>
-                <input type="text" name="evento" placeholder="Descripción del evento" required>
-                <input type="text" name="responsable" placeholder="Responsable" required>
+                <input type="text" name="equipo" placeholder="Descripción del evento" required>
+                <input type="text" name="derscripcion" placeholder="Responsable" required>
+                <input type="text" name="parte numero" placeholder="Descripción del evento" required>
+                <input type="text" name="prioridad" placeholder="Responsable" required>
+	        <input type="text" name="reporta" placeholder="Responsable" required>
                 <button type="submit">Agregar BACKLOG</button>
               </form>
             </div>
@@ -240,7 +250,7 @@
         </section>	    
 	<!--<section id="backlog" class="seccion">
 	<div class="container">
-	  <h2>Registros de eventos (BBACKLOG)</h2>
+	  <h2>Registros de eventos (BACKLOG)</h2>
 	        <section id="re" class="seccion-re">
           
             
