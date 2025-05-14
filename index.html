@@ -197,7 +197,7 @@
                 <input type="date" name="fecha" required>
                 <input type="text" name="equipo" placeholder="Descripción del evento" required>
                 <input type="text" name="derscripcion" placeholder="Responsable" required>
-                <input type="text" name="parte numero" placeholder="Descripción del evento" required>
+                <input type="text" name="parte" placeholder="Descripción del evento" required>
                 <input type="text" name="prioridad" placeholder="Responsable" required>
 	        <input type="text" name="reporta" placeholder="Responsable" required>
                 <button type="submit">Agregar</button>
@@ -218,7 +218,7 @@
                     <th>Fecha</th>
                     <th>Equipo</th>
 		    <th>Descripción</th>
-		    <th>Parte número</th>
+		    <th>Parte Número</th>
 		    <th>Prioridad</th>
                     <th>Reporta</th>
                   </tr>
@@ -237,11 +237,12 @@
             <!-- Formulario para nuevos eventos -->
             <div class="backlog-formulario">
               <h3>Agregar Nuevo Evento</h3>
-              <form id="form-backlog">
-                <input type="text" name="equipo" placeholder="Descripción del evento" required>
-                <input type="text" name="derscripcion" placeholder="Responsable" required>
-                <input type="text" name="parte numero" placeholder="Descripción del evento" required>
-                <input type="text" name="prioridad" placeholder="Responsable" required>
+                <form id="form-backlog">
+		<input type="date" name="fecha" required>      
+                <input type="text" name="equipo" placeholder="Equipo del evento" required>
+                <input type="text" name="derscripcion" placeholder="Descripción" required>
+                <input type="text" name="parte" placeholder="Parte número " required>
+                <input type="text" name="prioridad" placeholder="Prioridad" required>
 	        <input type="text" name="reporta" placeholder="Responsable" required>
                 <button type="submit">Agregar BACKLOG</button>
               </form>
@@ -268,10 +269,10 @@
 	  </form>
 	
 	  <div id="mensaje-backlog" style="display:none; color: green; font-weight: bold; margin-top: 10px;">
-	    ✅ ¡Elemento agregado al backlog!
+	    ¡Elemento agregado al backlog!
 	  </div>
 	
-	  <h3>🔎 Tareas pendientes</h3>
+	  <h3>Tareas pendientes</h3>
 	  <table id="tabla-backlog">
 	    <thead>
 	      <tr>
@@ -379,8 +380,7 @@
     });
   });
 </script>
-<script src="js/modal.js"></script>
-<script src="js/menu.js"></script>
+	
 <script>
   const formRE = document.getElementById('form-re');
   const tabla = document.querySelector('.re-lista tbody');
@@ -389,15 +389,19 @@
     e.preventDefault();
 
     const fecha = this.fecha.value;
-    const evento = this.evento.value.trim();
-    const responsable = this.responsable.value.trim();
-
-    if (fecha && evento && responsable) {
-      const nuevaFila = document.createElement('tr');
+    const equipo = this.equipo.value.trim();
+    const descripcion= this.descripcion.value.trim();
+    const parte= this.descripcion.value.trim();
+    const prioridad= this.descripcion.value.trim();
+    const reporta= this.descripcion.value.trim();    if (fecha && evento && responsable) {
+    const nuevaFila = document.createElement('tr');
       nuevaFila.innerHTML = `
         <td>${fecha}</td>
-        <td>${evento}</td>
-        <td>${responsable}</td>
+        <td>${equipo}</td>
+        <td>${descripcion}</td>
+	<td>${parte}</td>
+        <td>${prioridad}</td>
+        <td>${reporta}</td>
       `;
       tabla.appendChild(nuevaFila);
 
@@ -406,6 +410,43 @@
     }
   });
 </script>
+
+
+
+
+	
+<script src="js/modal.js"></script>
+<script src="js/menu.js"></script>
+
+<script>
+  const formBACKLOG = document.getElementById('form-backlog');
+  const tabla = document.querySelector('.backlog-lista tbody');
+
+  formRE.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const fecha = this.fecha.value;
+    const equipo = this.equipo.value.trim();
+    const descripcion= this.descripcion.value.trim();
+    const parte= this.descripcion.value.trim();
+    const prioridad= this.descripcion.value.trim();
+    const reporta= this.descripcion.value.trim();    if (fecha && evento && responsable) {
+    const nuevaFila = document.createElement('tr');
+      nuevaFila.innerHTML = `
+        <td>${fecha}</td>
+        <td>${equipo}</td>
+        <td>${descripcion}</td>
+	<td>${parte}</td>
+        <td>${prioridad}</td>
+        <td>${reporta}</td>
+      `;
+      tabla.appendChild(nuevaFila);
+
+      // Limpiar el formulario
+      this.reset();
+    }
+  });
+</script>	
 <a href="https://wa.me/573001234567" target="_blank" class="whatsapp-flotante" aria-label="Escríbenos por WhatsApp">
   🟢
   <span class="tooltip-whatsapp">¡Chatea con el asistente!</span>
