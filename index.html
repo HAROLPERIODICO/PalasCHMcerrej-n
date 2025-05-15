@@ -168,28 +168,30 @@
 	  <h2>Formulario de Chequeo - RE</h2>
 	  <form id="form-re">
 	    <label>Fecha:
-	      <input type="date" name="fecha" required>
+	      <input type="date" name="fecha" id="fecha" required>
 	    </label>
 	
 	    <label>Equipo:
-	      <input type="text" name="equipo" required>
+	      <input type="text" name="equipo" required placeholder="Nombre del equipo">
 	    </label>
 	
 	    <label>Descripción:
-	      <textarea name="descripcion" required></textarea>
+	      <textarea name="descripcion" required placeholder="Describe el chequeo o hallazgo..."></textarea>
 	    </label>
 	
 	    <label>Parte:
-	      <input type="text" name="parte" required>
+	      <input type="text" name="parte" required placeholder="Parte revisada o afectada">
 	    </label>
 	
 	    <label>Responsable:
-	      <input type="text" name="responsable" required>
+	      <input type="text" name="responsable" required placeholder="Nombre del responsable">
 	    </label>
 	
 	    <button type="submit">Guardar</button>
+	    <p id="mensaje-exito" style="color: green; display: none; margin-top: 10px;">✔ Registro exitoso</p>
 	  </form>
 	</section>
+
 	<h3>Registros</h3>
 	<table id="tabla-re">
 	  <thead>
@@ -303,62 +305,42 @@
 </script>
 	
 <script>
-  const formRE = document.getElementById('form-re');
-  const tabla = document.querySelector('.re-lista tbody');
-
-  formRE.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const fecha = this.fecha.value;
-    const equipo = this.equipo.value.trim();
-    const descripcion= this.descripcion.value.trim();
-    const parte= this.parte.value.trim();
-    const prioridad= this.prioridad.value.trim();
-    const reporta= this.reporta.value.trim();    if (fecha && equipo && descripcion && parte && prioridad && reporta) {
-    const nuevaFila = document.createElement('tr');
-      nuevaFila.innerHTML = `
-        <td>${fecha}</td>
-        <td>${equipo}</td>
-        <td>${descripcion}</td>
-	<td>${parte}</td>
-        <td>${prioridad}</td>
-        <td>${reporta}</td>
-      `;
-      tabla.appendChild(nuevaFila);
-
-      // Limpiar el formulario
-      this.reset();
-    }
-  });
-</script>
-
 <script>
-  const formBACKLOG = document.getElementById('form-backlog');
-  const tabla = document.querySelector('.backlog-lista tbody');
+  // Autocompletar fecha
+  document.addEventListener("DOMContentLoaded", () => {
+    const fechaInput = document.getElementById("fecha");
+    const hoy = new Date().toISOString().split("T")[0];
+    fechaInput.value = hoy;
+  });
 
-  formBACKLOG.addEventListener('submit', function (e) {
+  // Enviar datos a Google Sheets
+  const scriptURL = 'TU_URL_WEB_APP_DE_GOOGLE_SCRIPTS'; // ← Reemplazar
+
+  const form = document.getElementById('form-re');
+  const mensaje = document.getElementById('mensaje-exito');
+
+  form.addEventListener('submit', e => {
     e.preventDefault();
 
-    const fecha = this.fecha.value;
-    const equipo = this.equipo.value.trim();
-    const descripcion= this.descripcion.value.trim();
-    const parte= this.parte.value.trim();
-    const prioridad= this.prioridad.value.trim();
-    const reporta= this.reporta.value.trim();    if (fecha && equipo && descripcion && parte && prioridad && reporta) {
-    const nuevaFila = document.createElement('tr');
-      nuevaFila.innerHTML = `
-        <td>${fecha}</td>
-        <td>${equipo}</td>
-        <td>${descripcion}</td>
-	<td>${parte}</td>
-        <td>${prioridad}</td>
-        <td>${reporta}</td>
-      `;
-      tabla.appendChild(nuevaFila);
-
-      // Limpiar el formulario
-      this.reset();
+    // Validación adicional (opcional)
+    const campos = ['fecha', 'equipo', 'descripcion', 'parte', 'responsable'];
+    for (const campo of campos) {
+      if (!form[campo].value.trim()) {
+        alert(`El campo "${campo}" es obligatorio`);
+        return;
+      }
     }
+
+    // Envío
+    const formData = new FormData(form);
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+        form.reset();
+        document.getElementById("fecha").value = new Date().toISOString().split("T")[0];
+        mensaje.style.display = 'block';
+        setTimeout(() => mensaje.style.display = 'none', 4000);
+      })
+      .catch(error => alert('Error al enviar los datos'));
   });
 </script>
 
