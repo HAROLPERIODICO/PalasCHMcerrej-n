@@ -350,35 +350,7 @@
 <script src="js/modal.js"></script>
 <script src="js/menu.js"></script>
 
-<script>
-  const formBACKLOG = document.getElementById('form-backlog');
-  const tabla = document.querySelector('.backlog-lista tbody');
 
-  formRE.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const fecha = this.fecha.value;
-    const equipo = this.equipo.value.trim();
-    const descripcion= this.descripcion.value.trim();
-    const parte= this.parte.value.trim();
-    const prioridad= this.prioridad.value.trim();
-    const reporta= this.reporta.value.trim();    if (fecha && equipo && descripcion && parte && prioridad && reporta) {
-    const nuevaFila = document.createElement('tr');
-      nuevaFila.innerHTML = `
-        <td>${fecha}</td>
-        <td>${equipo}</td>
-        <td>${descripcion}</td>
-	<td>${parte}</td>
-        <td>${prioridad}</td>
-        <td>${reporta}</td>
-      `;
-      tabla.appendChild(nuevaFila);
-
-      // Limpiar el formulario
-      this.reset();
-    }
-  });
-</script>	
 <a href="https://wa.me/573001234567" target="_blank" class="whatsapp-flotante" aria-label="Escríbenos por WhatsApp">
   🟢
   <span class="tooltip-whatsapp">¡Chatea con el asistente!</span>
