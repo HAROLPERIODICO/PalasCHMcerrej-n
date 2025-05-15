@@ -164,32 +164,28 @@
           <div class="nosotros-texto" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
         </section>
 
-	<section id="re">
-	  <h2>Formulario de Chequeo - RE</h2>
+	<section id="re" class="seccion-re">
+	  <h2>Formulario de Registro de Fallas</h2>
 	  <form id="form-re">
-	    <label>Fecha:
-	      <input type="date" name="fecha" id="fecha" required>
-	    </label>
+	    <label for="fecha">Fecha:</label>
+	    <input type="date" name="fecha" required>
 	
-	    <label>Equipo:
-	      <input type="text" name="equipo" required placeholder="Nombre del equipo">
-	    </label>
+	    <label for="equipo">Equipo:</label>
+	    <input type="text" name="equipo" required>
 	
-	    <label>Descripción:
-	      <textarea name="descripcion" required placeholder="Describe el chequeo o hallazgo..."></textarea>
-	    </label>
+	    <label for="descripcion">Descripción:</label>
+	    <textarea name="descripcion" rows="3" required></textarea>
 	
-	    <label>Parte:
-	      <input type="text" name="parte" required placeholder="Parte revisada o afectada">
-	    </label>
+	    <label for="parte">Parte:</label>
+	    <input type="text" name="parte" required>
 	
-	    <label>Responsable:
-	      <input type="text" name="responsable" required placeholder="Nombre del responsable">
-	    </label>
+	    <label for="responsable">Responsable:</label>
+	    <input type="text" name="responsable" required>
 	
-	    <button type="submit">Guardar</button>
-	    <p id="mensaje-exito" style="color: green; display: none; margin-top: 10px;">✔ Registro exitoso</p>
+	    <button type="submit">Enviar</button>
 	  </form>
+	
+	  <p id="mensaje-exito" style="display:none; color: green;">¡Registro enviado exitosamente!</p>
 	</section>
 
 	<h3>Registros</h3>
@@ -304,7 +300,36 @@
   });
 </script>
 	
+
 <script>
+  document.getElementById("form-re").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = new URLSearchParams();
+
+    for (const pair of formData) {
+      data.append(pair[0], pair[1]);
+    }
+
+    fetch("TU_URL_DEL_WEB_APP", {
+      method: "POST",
+      body: data
+    })
+    .then(response => response.text())
+    .then(responseText => {
+      console.log(responseText);
+      document.getElementById("mensaje-exito").style.display = "block";
+      form.reset();
+    })
+    .catch(error => {
+      console.error("Error al enviar datos:", error);
+    });
+  });
+</script>
+
+	
 <script>
   // Autocompletar fecha
   document.addEventListener("DOMContentLoaded", () => {
