@@ -50,7 +50,7 @@
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#re">RE</a></li>
       <li><a href="#backlog">BACKLOG</a></li>
-      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#inspecciones">Inspecciones</a></li>
       </ul>     
           </nav>
 
@@ -106,11 +106,11 @@
                     <!-- Llamado a la acción -->
            <div class="cta">
              <a href="#re" class="btn">!Reporta¡ RE</a>
-	   </div>	   
-           <div><a href="#backlog" class="btn">!Reporta¡ BACKLOG</a>
-	   </div>
-           <div><a href="#inspeccion" class="btn">Entrega Inspección</a>
-	   </div>
+		    <a href="#backlog" class="btn">!Reporta¡ BACKLOG</a>
+		    	 <a href="#inspeccion" class="btn">Entrega Inspección</a>
+	   	   
+           
+
        </div> 
       </section> 
 
@@ -400,9 +400,9 @@
     const fecha = this.fecha.value;
     const equipo = this.equipo.value.trim();
     const descripcion= this.descripcion.value.trim();
-    const parte= this.descripcion.value.trim();
-    const prioridad= this.descripcion.value.trim();
-    const reporta= this.descripcion.value.trim();    if (fecha && evento && responsable) {
+    const parte= this.parte.value.trim();
+    const prioridad= this.prioridad.value.trim();
+    const reporta= this.reporta.value.trim();    if (fecha && equipo && descripcion && parte && prioridad && reporta) {
     const nuevaFila = document.createElement('tr');
       nuevaFila.innerHTML = `
         <td>${fecha}</td>
@@ -437,9 +437,9 @@
     const fecha = this.fecha.value;
     const equipo = this.equipo.value.trim();
     const descripcion= this.descripcion.value.trim();
-    const parte= this.descripcion.value.trim();
-    const prioridad= this.descripcion.value.trim();
-    const reporta= this.descripcion.value.trim();    if (fecha && evento && responsable) {
+    const parte= this.parte.value.trim();
+    const prioridad= this.prioridad.value.trim();
+    const reporta= this.reporta.value.trim();    if (fecha && equipo && descripcion && parte && prioridad && reporta) {
     const nuevaFila = document.createElement('tr');
       nuevaFila.innerHTML = `
         <td>${fecha}</td>
