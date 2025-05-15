@@ -164,136 +164,48 @@
           <div class="nosotros-texto" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
         </section>
 
-        <section id="re" class="seccion-re">
-          <div class="container">
-            <h2>Registro de Eventos (RE)</h2>
-
-            <!-- Tabla de chequeo -->
-            <div class="re-lista">
-              <h3>Chequeo Actual</h3>
-              <table>
-                <thead>
-                  <tr>
-		    <th>Fecha</th>	  
-                    <th>Equipo</th>
-		    <th>Descripción</th>
-		    <th>Parte número</th>
-		    <th>Prioridad</th>
-                    <th>Reporta</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2025-05-10</td>
-                    <td>145</td>
-                    <td>Cambiar sello</td>
-		    <td>234566</td>
-                    <td>P1</td>
-                    <td>Carlos Gómez</td>	  
-                  </tr>
-                  <!-- Aquí se agregarán más registros dinámicamente -->
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Formulario para nuevos eventos -->
-            <div class="re-formulario">
-              <h3>Agregar Nuevo Evento RE</h3>
-              <form id="form-re">
-                <input type="date" name="fecha" required>
-                <input type="text" name="equipo" placeholder="Equipo H131" required>
-                <input type="text" name="derscripcion" placeholder="Descripcion detallada" required>
-                <input type="text" name="parte" placeholder="Parte Número del evento" required>
-                <input type="text" name="prioridad" placeholder="P1, P2, P3 P4" required>
-	        <input type="text" name="reporta" placeholder="Responsable" required>
-                <button type="submit">Agregar</button>
-              </form>
-            </div>
-          </div>
-        </section>
-      <section id="backlog" class="seccion-backlog">
-          <div class="container">
-            <h2>Registro de Eventos (BACKLOG)</h2>
-
-            <!-- Tabla de chequeo -->
-          <div class="backlog-lista">
-              <h3>Chequeo Actual</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Fecha</th>
-                    <th>Equipo</th>
-		    <th>Descripción</th>
-		    <th>Parte Número</th>
-		    <th>Prioridad</th>
-                    <th>Reporta</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2025-05-10</td>
-                    <td>140</td>
-                    <td>Cambiar filtro</td>
-		    <td>24784</td>
-                    <td>P2</td>
-                    <td>Carlos Gómez</td>
-                  </tr>
-                  <!-- Aquí se agregarán más registros dinámicamente -->
-              </tbody>
-              </table>
-            </div>
-
-            <!-- Formulario para nuevos eventos -->
-            <div class="backlog-formulario">
-              <h3>Agregar Nuevo Evento</h3>
-                <form id="form-backlog">
-		<input type="date" name="fecha" required>      
-                <input type="text" name="equipo" placeholder="Equipo H131" required>
-                <input type="text" name="derscripcion" placeholder="Descripcion detallada" required>
-                <input type="text" name="parte" placeholder="Parte Número del evento" required>
-                <input type="text" name="prioridad" placeholder="P1, P2, P3 P4" required>
-	        <input type="text" name="reporta" placeholder="Responsable" required>
-                <button type="submit">Agregar BACKLOG</button>
-              </form>
-            </div>
-          </div>
-        </section>	    
-	<!--<section id="backlog" class="seccion">
-	<div class="container">
-	  <h2>Registros de eventos (BACKLOG)</h2>
-	        <section id="re" class="seccion-re">
-          
-            
-	  <form id="formulario-backlog">
-	    <label for="backlog-fecha">Fecha:</label>
-	    <input type="date" id="backlog-fecha" required>
+	<section id="re">
+	  <h2>Formulario de Chequeo - RE</h2>
+	  <form id="form-re">
+	    <label>Fecha:
+	      <input type="date" name="fecha" required>
+	    </label>
 	
-	    <label for="backlog-tarea">Tarea pendiente:</label>
-	    <input type="text" id="backlog-tarea" required>
+	    <label>Equipo:
+	      <input type="text" name="equipo" required>
+	    </label>
 	
-	    <label for="backlog-area">Área responsable:</label>
-	    <input type="text" id="backlog-area" required>
+	    <label>Descripción:
+	      <textarea name="descripcion" required></textarea>
+	    </label>
 	
-	    <button type="submit">Agregar a Backlog</button>
+	    <label>Parte:
+	      <input type="text" name="parte" required>
+	    </label>
+	
+	    <label>Responsable:
+	      <input type="text" name="responsable" required>
+	    </label>
+	
+	    <button type="submit">Guardar</button>
 	  </form>
-	
-	  <div id="mensaje-backlog" style="display:none; color: green; font-weight: bold; margin-top: 10px;">
-	    ¡Elemento agregado al backlog!
-	  </div>
-	
-	  <h3>Tareas pendientes</h3>
-	  <table id="tabla-backlog">
-	    <thead>
-	      <tr>
-	        <th>Fecha</th>
-	        <th>Tarea</th>
-	        <th>Área</th>
-	      </tr>
-	    </thead>
-	    <tbody></tbody>
-	  </table>
-	</div>		
-	</section>-->
+	</section>
+	<h3>Registros</h3>
+	<table id="tabla-re">
+	  <thead>
+	    <tr>
+	      <th>Fecha</th>
+	      <th>Equipo</th>
+	      <th>Descripción</th>
+	      <th>Parte</th>
+	      <th>Responsable</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <!-- Los registros se insertan aquí desde Google Sheets -->
+	  </tbody>
+	</table>
+
 
 
 
