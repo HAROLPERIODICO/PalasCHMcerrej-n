@@ -202,7 +202,7 @@
               <form id="form-re">
                 <input type="date" name="fecha" required>
                 <input type="text" name="equipo" placeholder="Equipo H131" required>
-                <input type="text" name="derscripcion" placeholder="RDescripcion detallada" required>
+                <input type="text" name="derscripcion" placeholder="Descripcion detallada" required>
                 <input type="text" name="parte" placeholder="Parte Número del evento" required>
                 <input type="text" name="prioridad" placeholder="P1, P2, P3 P4" required>
 	        <input type="text" name="reporta" placeholder="Responsable" required>
@@ -211,12 +211,12 @@
             </div>
           </div>
         </section>
-         <!-- <section id="backlog" class="seccion-backlog">
+      <section id="backlog" class="seccion-backlog">
           <div class="container">
             <h2>Registro de Eventos (BACKLOG)</h2>
 
             <!-- Tabla de chequeo -->
-             <!-- <div class="backlog-lista">
+          <div class="backlog-lista">
               <h3>Chequeo Actual</h3>
               <table>
                 <thead>
@@ -239,19 +239,19 @@
                     <td>Carlos Gómez</td>
                   </tr>
                   <!-- Aquí se agregarán más registros dinámicamente -->
-                 <!-- </tbody>
+              </tbody>
               </table>
             </div>
 
             <!-- Formulario para nuevos eventos -->
-             <!-- <div class="backlog-formulario">
+            <div class="backlog-formulario">
               <h3>Agregar Nuevo Evento</h3>
                 <form id="form-backlog">
 		<input type="date" name="fecha" required>      
-                <input type="text" name="equipo" placeholder="Equipo del evento" required>
-                <input type="text" name="derscripcion" placeholder="Descripción" required>
-                <input type="text" name="parte" placeholder="Parte número " required>
-                <input type="text" name="prioridad" placeholder="Prioridad" required>
+                <input type="text" name="equipo" placeholder="Equipo H131" required>
+                <input type="text" name="derscripcion" placeholder="Descripcion detallada" required>
+                <input type="text" name="parte" placeholder="Parte Número del evento" required>
+                <input type="text" name="prioridad" placeholder="P1, P2, P3 P4" required>
 	        <input type="text" name="reporta" placeholder="Responsable" required>
                 <button type="submit">Agregar BACKLOG</button>
               </form>
@@ -420,6 +420,35 @@
   });
 </script>
 
+<script>
+  const formBACKLOG = document.getElementById('form-re');
+  const tabla = document.querySelector('.backlog-lista tbody');
+
+  formBACKLOG.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const fecha = this.fecha.value;
+    const equipo = this.equipo.value.trim();
+    const descripcion= this.descripcion.value.trim();
+    const parte= this.parte.value.trim();
+    const prioridad= this.prioridad.value.trim();
+    const reporta= this.reporta.value.trim();    if (fecha && equipo && descripcion && parte && prioridad && reporta) {
+    const nuevaFila = document.createElement('tr');
+      nuevaFila.innerHTML = `
+        <td>${fecha}</td>
+        <td>${equipo}</td>
+        <td>${descripcion}</td>
+	<td>${parte}</td>
+        <td>${prioridad}</td>
+        <td>${reporta}</td>
+      `;
+      tabla.appendChild(nuevaFila);
+
+      // Limpiar el formulario
+      this.reset();
+    }
+  });
+</script>
 
 
 
