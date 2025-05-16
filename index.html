@@ -188,7 +188,13 @@
 	  <p id="mensaje-exito" style="display:none; color: green;">¡Registro enviado exitosamente!</p>
 	</section>
 
-	<h3>Registros</h3>
+	<section class="tabla-re">
+	  <h2>Registros recientes</h2>
+	  <div id="tabla-google-sheet"></div>
+	</section>
+
+	   
+	<!--<h3>Registros</h3>
 	<table id="tabla-re">
 	  <thead>
 	    <tr>
@@ -201,8 +207,8 @@
 	  </thead>
 	  <tbody>
 	    <!-- Los registros se insertan aquí desde Google Sheets -->
-	  </tbody>
-	</table>
+	  <!--</tbody>
+	</table>-->
 
 
 
@@ -369,6 +375,28 @@
   });
 </script>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', {'packages':['table']});
+  google.charts.setOnLoadCallback(drawTable);
+
+  function drawTable() {
+    var queryString = encodeURIComponent('SELECT A, B, C, D, E');
+
+    var dataSourceUrl = ' https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true' + queryString;
+
+    var query = new google.visualization.Query(dataSourceUrl);
+    query.send(function(response) {
+      if (response.isError()) {
+        document.getElementById('tabla-google-sheet').innerText = 'Error al cargar datos.';
+        return;
+      }
+      var data = response.getDataTable();
+      var table = new google.visualization.Table(document.getElementById('tabla-google-sheet'));
+      table.draw(data, {showRowNumber: true, width: '100%', height: 'auto'});
+    });
+  }
+</script>
 
 
 	
