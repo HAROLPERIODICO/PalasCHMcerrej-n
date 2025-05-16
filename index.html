@@ -165,22 +165,22 @@
         </section>
 
 	<section id="re" class="seccion-re">
-	  <h2>Formulario de REs</h2>
+	  <h2>Formulario de RE</h2>
 	  <form id="form-re">
 	    <label for="fecha">Fecha:</label>
 	    <input type="date" name="fecha" required>
 	
 	    <label for="equipo">Equipo:</label>
-	    <input type="text" name="equipo" required>
+	    <input type="text" name="equipo" placeholder="Equipo" required>
 	
 	    <label for="descripcion">Descripción:</label>
-	    <textarea name="descripcion" rows="3" required></textarea>
+	    <textarea name="descripcion" rows="3" placeholder="Descripci+on detallada" required></textarea>
 	
 	    <label for="parte">Parte:</label>
-	    <input type="text" name="parte" required>
+	    <input type="text" name="parte" placeholder="Parte Número" required>
 	
 	    <label for="responsable">Responsable:</label>
-	    <input type="text" name="responsable" required>
+	    <input type="text" name="responsable" placeholder="Quien reporta" required>
 	
 	    <button type="submit">Enviar</button>
 	  </form>
@@ -188,7 +188,29 @@
 	  <p id="mensaje-exito" style="display:none; color: green;">¡Registro enviado exitosamente!</p>
 	</section>
 
-
+	<section id="backlog" class="seccion-backlog">
+	  <h2>Formulario de Backlog</h2>
+	  <form id="form-backlog">
+	    <label for="fecha">Fecha:</label>
+	    <input type="date" name="fecha_backlog" required>
+	
+	    <label for="equipo">Equipo:</label>
+	    <input type="text" name="equipo" placeholder="Equipo" required>
+	
+	    <label for="descripcion">Descripción:</label>
+	    <textarea name="descripcion" rows="3" placeholder="Descripci+on detallada" required></textarea>
+	
+	    <label for="parte">Parte:</label>
+	    <input type="text" name="parte" placeholder="Parte Número" required>
+	
+	    <label for="responsable">Responsable:</label>
+	    <input type="text" name="responsable" placeholder="Quien reporta" required>
+	
+	    <button type="submit">Enviar</button>
+	  </form>
+	
+	  <p id="mensaje-exito" style="display:none; color: green;">¡Registro enviado exitosamente!</p>
+	</section>
 
 
 
