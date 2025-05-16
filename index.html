@@ -194,7 +194,7 @@
 	</section>
 
 	   
-        <h3>Registros</h3>
+       <!-- <h3>Registros</h3>
 	<table id="tabla-re">
 	  <thead>
 	    <tr>
@@ -207,8 +207,8 @@
 	  </thead>
 	  <tbody>
 	    <!-- Los registros se insertan aquí desde Google Sheets -->
-	  </tbody>
-	</table>
+	<!--   </tbody>
+	</table>-->
 
 
 
@@ -349,7 +349,7 @@
 
   function drawReTable() {
     // Aquí debes usar una URL que exponga los datos como JSON (no HTML)
-    fetch('URL_DEL_JSON_O_DEL_SCRIPT_APP_SCRIPT_QUE_DEVUELVE_JSON')
+    fetch('https://script.google.com/macros/s/AKfycbxHzRgLAuzU4Ofx-nl1dG0NIGECkyD_yRe5sgtaNc58HHSVQX5eugR__AzHDs15TNfd/exec')
       .then(response => response.json())
       .then(data => {
         const tabla = document.getElementById('tabla_re_chart');
