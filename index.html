@@ -188,27 +188,7 @@
 	  <p id="mensaje-exito" style="display:none; color: green;">¡Registro enviado exitosamente!</p>
 	</section>
 
-	<section class="tabla-re">
-	  <h2>Registros recientes</h2>
-	  <div id="tabla-google-sheet"></div>
-	</section>
 
-	   
-       <!-- <h3>Registros</h3>
-	<table id="tabla-re">
-	  <thead>
-	    <tr>
-	      <th>Fecha</th>
-	      <th>Equipo</th>
-	      <th>Descripción</th>
-	      <th>Parte</th>
-	      <th>Responsable</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <!-- Los registros se insertan aquí desde Google Sheets -->
-	<!--   </tbody>
-	</table>-->
 
 
 
@@ -341,12 +321,29 @@
     });
   });
 </script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxHzRgLAuzU4Ofx-nl1dG0NIGECkyD_yRe5sgtaNc58HHSVQX5eugR__AzHDs15TNfd/exec'; // tu URL real aquí
+  const form = document.getElementById('form-re');
+  const mensaje = document.getElementById('mensaje-exito');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+        form.reset();
+        mensaje.style.display = 'block';
+        setTimeout(() => mensaje.style.display = 'none', 4000);
+      })
+      .catch(error => alert('Error al enviar los datos'));
+  });
+</script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
   google.charts.load('current', { 'packages': ['table'] });
   google.charts.setOnLoadCallback(drawReTable);
-
+<div id="tabla_re_chart"></div>
   function drawReTable() {
     // Aquí debes usar una URL que exponga los datos como JSON (no HTML)
     fetch('https://script.google.com/macros/s/AKfycbxHzRgLAuzU4Ofx-nl1dG0NIGECkyD_yRe5sgtaNc58HHSVQX5eugR__AzHDs15TNfd/exec')
