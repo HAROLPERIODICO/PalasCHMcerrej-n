@@ -45,13 +45,13 @@
           <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
          <!-- Barra de navegación -->
           <nav class="nav" id="nav">
-           <ul id="menu">
-      <li><a href="#indicadores">Indicadores</a></li> 
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#re">RE</a></li>
-      <li><a href="#backlog">BACKLOG</a></li>
-      <li><a href="#inspecciones">Inspecciones</a></li>
-      </ul>     
+             <ul id="menu">
+      		<li><a href="#indicadores">Indicadores</a></li> 
+      		<li><a href="#nosotros">Nosotros</a></li>
+   		<li><a href="#re">RE</a></li>
+      		<li><a href="#backlog">BACKLOG</a></li>
+      		<li><a href="#inspecciones">Inspecciones</a></li>
+      	      </ul>     
           </nav>
 
      
@@ -165,7 +165,7 @@
         </section>
 
 	<section id="re" class="seccion-re">
-	  <h2>Formulario de Registro de Fallas</h2>
+	  <h2>Formulario de REs</h2>
 	  <form id="form-re">
 	    <label for="fecha">Fecha:</label>
 	    <input type="date" name="fecha" required>
@@ -194,7 +194,7 @@
 	</section>
 
 	   
-	<!--<h3>Registros</h3>
+        <h3>Registros</h3>
 	<table id="tabla-re">
 	  <thead>
 	    <tr>
@@ -207,8 +207,8 @@
 	  </thead>
 	  <tbody>
 	    <!-- Los registros se insertan aquí desde Google Sheets -->
-	  <!--</tbody>
-	</table>-->
+	  </tbody>
+	</table>
 
 
 
@@ -225,7 +225,7 @@
                        <li><a href="#nosotros">Nosotros</a></li>
                        <li><a href="#re">RE</a></li>
                        <li><a href="#backlog">BACKLOG</a></li>
-                       <li><a href="#galeria">Galeria</a></li>
+                       <li><a href="#inspecciones">Inspecciones</a></li>
                      </ul>
                     </nav>
                         <div class="redes-sociales">
@@ -246,13 +246,13 @@
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="#fff">
                                 <path d="M380.9 97.1C339-9.9 196.7-33.2 106 56.6 49.9 112.7 35.3 202.1 71 276.7L0 480l208.2-67.2c70.5 31.8 155.3 9.2 202.7-63.3 42.6-65.6 42.6-147.9 0-213.4zM226.1 392.6c-24.5 0-48.7-6-70.3-17.5L82.8 396l22.3-73.8c-25.5-42.9-28.1-97.5-6.7-143.3 44.5-93.2 160.3-122.8 243.7-65.2 81.6 56.4 90.5 173.3 17.4 244.3-30.2 29.7-70.2 45.6-111.4 45.6z"/>
                               </svg>
-                              <span class="tooltip-whatsapp">¡Contáctanos por WhatsApp!</span>
+                              <span class="tooltip-whatsapp">¡Chatea con el asistente!</span>
                            </a>
                        </div>
                    </div>
                  </div>
                  <div class="footer-info">
-                     <p> <strong>powered by HD SOFTWARE SOLUTIONS</strong> &copy; 2025 | Todos los derechos reservados Harol Enrique Díaz Meléndez.</p>
+                     <p> <strong>powered by HD SOFTWARE SOLUTIONS</strong> &copy; 2025 | Todos los derechos reservados.</p>
                  </div>
                </footer>
                
@@ -319,7 +319,7 @@
       data.append(pair[0], pair[1]);
     }
 
-    fetch("TU_URL_DEL_WEB_APP", {
+    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true", {
       method: "POST",
       body: data
     })
@@ -432,11 +432,6 @@ function drawReTable() {
 <script src="js/modal.js"></script>
 <script src="js/menu.js"></script>
 
-
-<a href="https://wa.me/573001234567" target="_blank" class="whatsapp-flotante" aria-label="Escríbenos por WhatsApp">
-
-  <span class="tooltip-whatsapp">¡Chatea con el asistente!</span>
-</a>
 
 </body>
 
