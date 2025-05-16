@@ -308,124 +308,91 @@
 	
 
 <script>
-  document.getElementById("form-re").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-    const data = new URLSearchParams();
-
-    for (const pair of formData) {
-      data.append(pair[0], pair[1]);
-    }
-
-    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true", {
-      method: "POST",
-      body: data
-    })
-    .then(response => response.text())
-    .then(responseText => {
-      console.log(responseText);
-      document.getElementById("mensaje-exito").style.display = "block";
-      form.reset();
-    })
-    .catch(error => {
-      console.error("Error al enviar datos:", error);
-    });
-  });
-</script>
-
-	
-<script>
-  // Autocompletar fecha
   document.addEventListener("DOMContentLoaded", () => {
     const fechaInput = document.getElementById("fecha");
     const hoy = new Date().toISOString().split("T")[0];
     fechaInput.value = hoy;
-  });
 
-  // Enviar datos a Google Sheets
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyTCT6iggULPJY0h5tp-hWlS7qEBkyihRVXYPZdgisozceX6aKUoMdfC9Pxufq5dYnd/exec'; // ← Reemplazar
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyTCT6iggULPJY0h5tp-hWlS7qEBkyihRVXYPZdgisozceX6aKUoMdfC9Pxufq5dYnd/exec';
+    const form = document.getElementById('form-re');
+    const mensaje = document.getElementById('mensaje-exito');
 
-  const form = document.getElementById('form-re');
-  const mensaje = document.getElementById('mensaje-exito');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    // Validación adicional (opcional)
-    const campos = ['fecha', 'equipo', 'descripcion', 'parte', 'responsable'];
-    for (const campo of campos) {
-      if (!form[campo].value.trim()) {
-        alert(`El campo "${campo}" es obligatorio`);
-        return;
+      const campos = ['fecha', 'equipo', 'descripcion', 'parte', 'responsable'];
+      for (const campo of campos) {
+        if (!form[campo].value.trim()) {
+          alert(`El campo "${campo}" es obligatorio`);
+          return;
+        }
       }
-    }
 
-    // Envío
-    const formData = new FormData(form);
-    fetch(scriptURL, { method: 'POST', body: formData })
-      .then(response => {
-        form.reset();
-        document.getElementById("fecha").value = new Date().toISOString().split("T")[0];
-        mensaje.style.display = 'block';
-        setTimeout(() => mensaje.style.display = 'none', 4000);
-      })
-      .catch(error => alert('Error al enviar los datos'));
+      const formData = new FormData(form);
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          form.reset();
+          fechaInput.value = hoy;
+          mensaje.style.display = 'block';
+          setTimeout(() => mensaje.style.display = 'none', 4000);
+          drawReTable(); // recarga la tabla al enviar datos
+        })
+        .catch(error => alert('Error al enviar los datos'));
+    });
   });
 </script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
-  google.charts.load('current', {'packages':['table']});
-  google.charts.setOnLoadCallback(drawTable);
+  google.charts.load('current', { 'packages': ['table'] });
+  google.charts.setOnLoadCallback(drawReTable);
 
-function drawReTable() {
-  fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true')
-    .then(response => response.json())
-    .then(data => {
-      const tabla = document.getElementById('tabla_re_chart');
-      tabla.innerHTML = ''; // Limpiar
+  function drawReTable() {
+    // Aquí debes usar una URL que exponga los datos como JSON (no HTML)
+    fetch('URL_DEL_JSON_O_DEL_SCRIPT_APP_SCRIPT_QUE_DEVUELVE_JSON')
+      .then(response => response.json())
+      .then(data => {
+        const tabla = document.getElementById('tabla_re_chart');
+        tabla.innerHTML = '';
 
-      const table = document.createElement('table');
-      table.classList.add('re-table');
+        const table = document.createElement('table');
+        table.classList.add('re-table');
 
-      // Encabezados
-      const thead = document.createElement('thead');
-      thead.innerHTML = `
-        <tr>
-          <th>Fecha</th>
-          <th>Equipo</th>
-          <th>Descripción</th>
-          <th>Parte</th>
-          <th>Responsable</th>
-        </tr>
-      `;
-      table.appendChild(thead);
-
-      // Filas de datos
-      const tbody = document.createElement('tbody');
-      data.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${row.fecha}</td>
-          <td>${row.equipo}</td>
-          <td>${row.descripcion}</td>
-          <td>${row.parte}</td>
-          <td>${row.responsable}</td>
+        const thead = document.createElement('thead');
+        thead.innerHTML = `
+          <tr>
+            <th>Fecha</th>
+            <th>Equipo</th>
+            <th>Descripción</th>
+            <th>Parte</th>
+            <th>Responsable</th>
+          </tr>
         `;
-        tbody.appendChild(tr);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.fecha}</td>
+            <td>${row.equipo}</td>
+            <td>${row.descripcion}</td>
+            <td>${row.parte}</td>
+            <td>${row.responsable}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        tabla.appendChild(table);
+      })
+      .catch(error => {
+        console.error('Error al cargar la tabla RE:', error);
       });
-
-      table.appendChild(tbody);
-      tabla.appendChild(table);
-    })
-    .catch(error => {
-      console.error('Error al cargar la tabla RE:', error);
-    });
-}
-
+  }
 </script>
+
+
 
 
 	
