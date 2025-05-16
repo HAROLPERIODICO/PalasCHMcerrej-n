@@ -450,6 +450,44 @@
   margin-bottom: 1.5rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+form input, form button {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #ff3b3b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #cc2f2f;
+}
+
+.re-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.re-table th, .re-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.re-table th {
+  background-color: #f4f4f4;
+}
 
 
 
