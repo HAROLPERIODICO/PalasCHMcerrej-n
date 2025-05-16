@@ -383,7 +383,7 @@
   function drawTable() {
     var queryString = encodeURIComponent('SELECT A, B, C, D, E');
 
-    var dataSourceUrl = ' https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true' + queryString;
+    var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true' + queryString;
 
     var query = new google.visualization.Query(dataSourceUrl);
     query.send(function(response) {
@@ -405,7 +405,7 @@
 
 
 <a href="https://wa.me/573001234567" target="_blank" class="whatsapp-flotante" aria-label="Escríbenos por WhatsApp">
-  🟢
+
   <span class="tooltip-whatsapp">¡Chatea con el asistente!</span>
 </a>
 
