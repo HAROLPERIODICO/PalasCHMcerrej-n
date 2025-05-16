@@ -380,22 +380,51 @@
   google.charts.load('current', {'packages':['table']});
   google.charts.setOnLoadCallback(drawTable);
 
-  function drawTable() {
-    var queryString = encodeURIComponent('SELECT A, B, C, D, E');
+function drawReTable() {
+  fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true')
+    .then(response => response.json())
+    .then(data => {
+      const tabla = document.getElementById('tabla_re_chart');
+      tabla.innerHTML = ''; // Limpiar
 
-    var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQid6sUTKOOxc314eqynJVv5ydBTFTAbXzAgbksZjY45DnDO8VR8eEx12jIAqLIpNEY5jVJeRTUoeEg/pubhtml?gid=854195178&single=true' + queryString;
+      const table = document.createElement('table');
+      table.classList.add('re-table');
 
-    var query = new google.visualization.Query(dataSourceUrl);
-    query.send(function(response) {
-      if (response.isError()) {
-        document.getElementById('tabla-google-sheet').innerText = 'Error al cargar datos.';
-        return;
-      }
-      var data = response.getDataTable();
-      var table = new google.visualization.Table(document.getElementById('tabla-google-sheet'));
-      table.draw(data, {showRowNumber: true, width: '100%', height: 'auto'});
+      // Encabezados
+      const thead = document.createElement('thead');
+      thead.innerHTML = `
+        <tr>
+          <th>Fecha</th>
+          <th>Equipo</th>
+          <th>Descripción</th>
+          <th>Parte</th>
+          <th>Responsable</th>
+        </tr>
+      `;
+      table.appendChild(thead);
+
+      // Filas de datos
+      const tbody = document.createElement('tbody');
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.fecha}</td>
+          <td>${row.equipo}</td>
+          <td>${row.descripcion}</td>
+          <td>${row.parte}</td>
+          <td>${row.responsable}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      table.appendChild(tbody);
+      tabla.appendChild(table);
+    })
+    .catch(error => {
+      console.error('Error al cargar la tabla RE:', error);
     });
-  }
+}
+
 </script>
 
 
