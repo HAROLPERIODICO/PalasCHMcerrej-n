@@ -437,6 +437,18 @@
   }
 }
 
+.tabla-re {
+  padding: 3rem 1rem;
+  background-color: #fff;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.tabla-re h2 {
+  color: #fb0505;
+  margin-bottom: 1.5rem;
+}
 
 
 
